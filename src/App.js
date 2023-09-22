@@ -32,7 +32,8 @@ function App() {
 
   const clickSubmit = (() => {
     const e = formValues.email
-    const emailValid = e.includes("@", ".")
+    const EMAIL_REGEX = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/
+    const emailValid = EMAIL_REGEX.test(e)
 
     setInicio({...inicio, emailState: true})
 
